@@ -1,25 +1,27 @@
-import React, { ReactElement } from 'react'
+import React, {ReactElement} from 'react'
 import DrawPile from './DrawPile'
-import PlayerHand from './PlayerHand'
 import PlayerTable from './PlayerTable'
 import ShipPile from './ShipPile'
+import type {GameConfig} from './Types'
+import GameConfigComponent from './GameConfigComponent'
 
-const GameTable: React.FC = (): ReactElement => {
+interface GameTableProps {
+	config: GameConfig
+}
+
+const GameTable: React.FC<GameTableProps> = (props: GameTableProps): ReactElement => {
+	const {config} = props
 	return (
 		<>
 			<div>Game Table</div>
-			<DrawPile />
-			<ShipPile />
-			<PlayerHand />
-			<PlayerHand />
-			<PlayerHand />
-			<PlayerHand />
-			<PlayerHand />
-			<PlayerTable />
-			<PlayerTable />
-			<PlayerTable />
-			<PlayerTable />
-			<PlayerTable />
+			<GameConfigComponent config={config}/>
+			<DrawPile/>
+			<ShipPile/>
+			<PlayerTable/>
+			<PlayerTable/>
+			<PlayerTable/>
+			<PlayerTable/>
+			<PlayerTable/>
 		</>
 	)
 }

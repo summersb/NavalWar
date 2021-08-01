@@ -1,10 +1,5 @@
-import React, { ReactElement } from 'react'
-
-class PlayCard {
-	info() {
-		return this.constructor.name
-	}
-}
+import React, {ReactElement} from 'react'
+import {PlayCard} from './Types'
 
 class SalvoCard extends PlayCard {
 	readonly gunSize: number
@@ -140,6 +135,10 @@ const setupSalvo: SalvoSetup = {
 		{ size: 2, number: 2 },
 		{ size: 1, number: 8 },
 	],
+}
+
+export const createPlayDeck = (): PlayCard[] => {
+	return cards
 }
 
 Object.keys(setupSalvo).forEach((gunSize) => {
