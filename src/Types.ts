@@ -31,12 +31,23 @@ export interface GameConfig {
 	score: number
 	shipDeck: ShipCard[]
 	playDeck: PlayCard[]
+	players: Player[]
 	noAdditionalShips: boolean
 	gunneryOnly: boolean
 	specialPlay: boolean
 	increaseCarnage: boolean
 	nightAction: boolean
 	kamikaze: boolean
+}
+
+export class Player {
+	readonly ships: ShipCard[] = []
+	readonly cards: PlayCard[] = []
+	readonly deepSix: ShipCard[] = []
+	readonly score: number = 0
+
+	constructor() {
+	}
 }
 
 export enum PlayerType {

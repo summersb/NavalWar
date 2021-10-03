@@ -1,11 +1,46 @@
 import React, {ReactElement, useState} from 'react'
 import type {GameConfig} from './Types'
-import {PlayerType} from './Types'
+import {Player, PlayerType} from './Types'
 import {createPlayDeck} from './DrawPile'
 import {createShipDeck} from './ShipPile'
 
 interface StartGameProps{
 	setConfig:(config:GameConfig) => void
+}
+
+const createPlayerArray = (playerType:PlayerType): Player[] => {
+	switch(playerType){
+	case PlayerType.THREE:
+		return [
+			new Player(),new Player(),new Player()
+		]
+	case PlayerType.FOUR:
+		break
+	case PlayerType.FOUR_TWO_TF:
+		break
+	case PlayerType.FIVE:
+		break
+	case PlayerType.SIX:
+		break
+	case PlayerType.SIX_TWO_TF:
+		break
+	case PlayerType.SIX_THREE_TF:
+		break
+	case PlayerType.SEVEN:
+		break
+	case PlayerType.EIGHT:
+		break
+	case PlayerType.EIGHT_TWO_TF:
+		break
+	case PlayerType.EIGHT_FOUR_TF:
+		break
+	case PlayerType.NINE:
+		break
+	case PlayerType.NINE_THREE_TF:
+		break
+
+	}
+	return []
 }
 
 const StartGame: React.FC<StartGameProps> = (props: StartGameProps): ReactElement => {
@@ -25,6 +60,7 @@ const StartGame: React.FC<StartGameProps> = (props: StartGameProps): ReactElemen
 			score,
 			shipDeck: createShipDeck(),
 			playDeck: createPlayDeck(),
+			players: createPlayerArray(playerType),
 			noAdditionalShips,
 			gunneryOnly,
 			increaseCarnage,
